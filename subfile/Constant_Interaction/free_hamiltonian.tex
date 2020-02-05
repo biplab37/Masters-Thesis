@@ -1,0 +1,49 @@
+\documentclass[a4paper,crop=false]{standalone}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
+% \usepackage{fullpage}
+% \usepackage[compat=1.1.0]{tikz-feynman}
+% \usepackage{wrapfig}
+% \usepackage{hyperref}
+% \usepackage{graphicx,subcaption,caption}
+\begin{document}
+        \begin{equation}
+            H_0 = \psi^{\dagger}_{k}h(k)\psi_{k}
+        \end{equation}
+        where $\psi_k = (a_k,b_k)^{T}$ and $h(k) = \begin{pmatrix}
+            0 & \phi(k)\\
+            \phi^{*}(k) & 0;
+        \end{pmatrix}$ with $\phi(k) = \sum_{\delta_j}e^{i \delta_j . k}$
+
+        The system becomes gapless when $\phi(k)$ vanishes. Let denote those two distinct points as $K_1$ and $K_2$.
+
+        We are interested in the physics near those two points, so we expand $h(k)$ near those two points to obtain
+        for $k = K_1 + q$, $h(k) \approx v_F \sigma . q$ and for $k = K_2 + q$, $h(k) \approx - v_F \sigma^* . q$
+
+        For the $\psi$'s we define
+        \begin{equation}
+            \Psi_{i,q} := \psi_{K_i + q}
+        \end{equation}
+        Note that q can only take values near $K_1$ and $K_2$. But if we are interested in the soft mode limit it is irrelevant what value of energy we are considering at very high q. Hence we can treat the Hamiltonian as sum of two free theories
+        \begin{equation}
+            H_0 = \Psi^{\dagger}_{1,q} (v_F \sigma . q) \Psi_{1,q} + \Psi^{\dagger}_{2,q} (- v_F \sigma^* . q)\Psi_{2,q}
+        \end{equation}
+        Then we have two Green's function for the two theories. These free propagators are
+        \begin{eqnarray}
+            G^{(0)}_{1}(i\omega,k) &=& (i\omega - v_F\sigma . k)^{-1} = \frac{i\omega + v_F\sigma . k}{(i\omega)^2 - v^2_F k^2}\\
+            G^{(0)}_{2}(i\omega,k) &=& (i\omega + v_F\sigma^* . k)^{-1} = \frac{i\omega - v_F\sigma^* . k}{(i\omega)^2 - v^2_F k^2}
+        \end{eqnarray}
+        Now we can introduce the interactions. First consider interaction only inside each valley
+        \begin{equation}
+            H_{int} = \frac{V_1}{2!2!} \Psi^{\dagger}_{1,k_4}\Psi^{\dagger}_{1,k_3}\Psi_{1,k_2}\Psi_{1,k_1} + \frac{V_1}{2!2!} \Psi^{\dagger}_{2,k_4}\Psi^{\dagger}_{2,k_3}\Psi_{2,k_2}\Psi_{2,k_1}
+        \end{equation}
+        here we have assumed same strength of interaction $V_1$ on both the valley.
+        At this point it is enough to focus on one of the valley say the first one.
+        \begin{mybox}[colback=white]{Note}
+            \begin{itemize}
+                \item Integration sign over all the momentum as well as the overall delta function is omitted.
+                % \item The potential $V_1$ should be antisymmetric in exchanging pair of momenta. Easiest way to take into account is by adding the term $- \frac{V_1}{2!2!} \Psi^{\dagger}_{1,k_4}\Psi^{\dagger}_{1,k_3}\Psi_{1,k_1}\Psi_{1,k_2} - \frac{V_1}{2!2!} \Psi^{\dagger}_{2,k_4}\Psi^{\dagger}_{2,k_3}\Psi_{2,k_1}\Psi_{2,k_2}$
+            \end{itemize}
+        \end{mybox}
+
+\end{document}

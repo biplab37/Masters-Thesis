@@ -1,0 +1,46 @@
+\documentclass[a4paper,crop=false]{standalone}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
+% \usepackage{fullpage}
+% \usepackage[compat=1.1.0]{tikz-feynman}
+% \usepackage{wrapfig}
+% \usepackage{hyperref}
+% \usepackage{graphicx,subcaption,caption}
+\begin{document}
+    Let's focus on the second order correction in $V_1$ to two point function. This gives integral of the form
+    \begin{equation}
+        V^1_2\int^{\infty}_{-\infty}\frac{d\omega_1d\omega_2}{(2\pi)^2}\int_{\frac{\Lambda}{s}<|k_1|,|k_2|<\Lambda}\frac{d^2k_1d^2k_2}{(2\pi)^4} G^{(0)}_1(i\omega_1,k_1)G^{(0)}_1(i\omega_2,k_2)G^{(0)}_1(-i(\omega_1 + \omega_2),k-k_1-k_2)
+    \end{equation}
+    where we have used the momentum conservation at each vertices to substitute for $k_3$ and $\omega_3$. 
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \begin{feynman}
+                \vertex (m);
+                \vertex [left=of m] (b)[dot,label=below:\(V_1\)];
+                \vertex [left=of b] (a);
+                \vertex [right=of m] (c)[dot,label=below:\(V_1\)];
+                \vertex [right=of c] (d);
+                \diagram*{
+                    (a)--[fermion,edge label=\(k\)](b)--[fermion,edge label=\(k_1\)](c)--[fermion,edge label=\(k\)](d);
+                    (b)--[fermion,out=60,in=120,edge label=\(k_2\)](c);
+                    (b)--[fermion,out=-60,in=-120,edge label=\(k_3\)](c);
+                };
+            \end{feynman}
+        \end{tikzpicture}
+        \caption{Two point function}
+    \end{figure}
+    At first we can look at one of the $\omega$ integrals
+    \begin{equation}
+        \sum_{s,s'=\pm 1}\int_{-\infty}^{\infty} \frac{d\omega_1}{2\pi}\frac{1 + s \frac{\sigma . k_1}{|k_1|}}{i\omega_1 - sv_F|k_1|} \frac{1 + s'\frac{\sigma . (k-k_1-k_2)}{|k-k_1-k_2|}}{i(\omega_1 + \omega_2) - s'v_F|k-k_1-k_2|}
+    \end{equation}
+    Poles are at $\pm v_F|k_1|$ and at $-i\omega_2 \pm v_F|k-k_1-k_2|$. We can close the contour on either side to get residues from only two of them. This gives the integral to be
+    \begin{equation}
+        \left(1 + \tfrac{\sigma . k_1}{|k_1|}\right)\sum_{s'=\pm 1} \tfrac{1 + s'\tfrac{\sigma . (k-k_1-k_2)}{|k-k_1-k_2|}}{i\omega_2 + v_F|k_1| - s'v_F|k-k_1-k_2|} + \left(1 + \tfrac{\sigma . (k-k_1-k_2)}{|k-k_1-k_2|}\right)\sum_{s = \pm 1}\tfrac{1 + s\frac{\sigma . k_1}{|k_1|}}{-i\omega_2 + v_F|k-k_1-k_2| - sv_F|k_1|}
+    \end{equation}
+    for the other $\omega$ integral we first have to multiply the above result by $G_1^{(0)}(i\omega_2,k_2)$. All the terms in the integrands are of the form 
+    \begin{equation}
+        \int_{\infty}^{\infty}\frac{d\omega_2}{2\pi}\frac{1}{(i\omega_2 - a)(i\omega_2 -b)}
+    \end{equation}
+    where a and b are real numbers. The integrals trivially reduces to $\frac{\theta(b) - \theta(a)}{a-b}$. Thus we only have non zero contribution if a and b are of different signs. In this case a can take values from $\pm v_F|k_2|$ and b can take values from $-v_F|k_1|\pm v_F|k-k_1-k_2|$ and $-v_F|k-k_1-k_2| \pm v_F|k_1|$
+\end{document}

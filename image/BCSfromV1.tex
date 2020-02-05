@@ -1,0 +1,23 @@
+\documentclass{standalone}
+% \usepackage[compat=1.1.0]{tikz-feynman}
+
+\begin{document}
+    \begin{tikzpicture}
+        \begin{feynman}
+            \vertex (a);
+            \vertex [above=of a] (b);
+            \vertex [below left=of a] (i1) {\(k_1\)};
+            \vertex [below right=of a] (i2) {\(k_2\)};
+            \vertex [above left=of b] (f1) {\(k_4\)};
+            \vertex [above right=of b] (f2) {\(k_3\)};
+            \diagram*{
+                (i1)--[fermion](a),
+                (i2)--[fermion](a),
+                (b)--[fermion](f1),
+                (b)--[fermion](f2);
+                (a)--[fermion,out=45,in=-45,edge label'=\(k_5\)](b);
+                (a)--[fermion,out=135,in=-135,edge label=\(k_6\)](b);
+            };
+        \end{feynman}
+    \end{tikzpicture}
+\end{document}

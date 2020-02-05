@@ -1,0 +1,55 @@
+\documentclass[a4paper,crop=false]{standalone}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
+% \usepackage{fullpage}
+% \usepackage[compat=1.1.0]{tikz-feynman}
+% \usepackage{wrapfig}
+% \usepackage{hyperref}
+% \usepackage{graphicx,subcaption,caption}
+\begin{document}
+        For the renormalisation of the interaction $V_1$ we have the following digrams (\ref{fig:oneloopfromV1})
+        \begin{figure}[h]
+            \centering
+            \begin{subfigure}[t]{0.3\textwidth}
+                \input{image/ZSfromV1}
+            \caption{ZS}
+            \label{fig:ZSfromV1}
+            \end{subfigure}
+            \begin{subfigure}[t]{0.3\textwidth}
+                \input{image/ZSprimefromV1}
+            \caption{ZS'}
+            \label{fig:ZSprimefromV1}
+            \end{subfigure}
+            \begin{subfigure}[t]{0.3\textwidth}
+                \input{image/BCSfromV1}
+            \caption{BCS}
+            \label{fig:BCSfromV1}
+            \end{subfigure}
+            \caption{oneloop diagrams with $V_1$ vertices}
+            \label{fig:oneloopfromV1}
+        \end{figure}
+
+        Each figure gives an integration of the form
+        \begin{equation}\label{eqn:oneloopfour}
+            V^2_1\int^{\infty}_{-\infty}\frac{d\omega_5d\omega_6}{(2\pi)^2}\int_{\frac{\Lambda}{s}<|k_5|,|k_6|<\Lambda}\frac{d^2k_5d^2k_6}{(2\pi)^4} G^{(0)}_1(i\omega_5,k_5)G^{(0)}_1(i\omega_6,k_6)
+        \end{equation}
+        Overall delta function for the momentum conservation at each vertex also fixes the relation between $k_5$ and $k_6$.
+        \begin{itemize}
+            \item \textbf{ZS: } $k_5 - k_6 = k_1 - k_4$
+            \item $\mathbf{ZS^{\prime}: }$ $k_5 - k_6 = k_1 - k_3$
+            \item \textbf{BCS: } $k_5 + k_6 = k_1 + k_2$
+        \end{itemize}
+        For the calculation of $\beta$ function we can set the external momenta and frequencies to be zero. This means that we have $k_5 = k_6$ and $\omega_5 = \omega_6$ for $ZS$ and $ZS'$ diagrams while $k_6 = -k_5$ and $\omega_6 = -\omega_5$ for BCS diagram. In all the cases we are supposed to calculate the same integral as in BCS diagram both frequency and momentum changes contributing an overall minus sign. To calculate the integral we will rewrite the propagator in a different form (called chiral representation)
+        \begin{equation}
+            G^{(0)}_{1}(i\omega,k) = \sum_{s=\pm 1}\frac{1}{2}\frac{1+s\frac{\sigma . k}{|k|}}{i\omega - sv_F|k|}
+        \end{equation}
+
+        So we get two kind of terms in \ref{eqn:oneloopfour}. One with both the factor in the denominator having same sign of s's and the other having opposite signs. For the terms having same sign, the function have pole on one side of the complex plane and so  we can always close the contour on the other side to get zero. For the case when we have opposite signs, we have the integrand
+        \begin{equation}
+            \frac{1}{4}\frac{(1+\frac{\sigma . k}{|k|})(1 - \frac{\sigma . k}{|k|})}{(i\omega - v_F|k|)(i\omega + v_F|k|)} = \frac{1}{4}\frac{1 - \frac{(\sigma . k)(\sigma . k)}{k^2}}{(i\omega - v_F|k|)(i\omega + v_F|k|)}
+        \end{equation}
+
+        The numerotor vanishes as $(\sigma . k)(\sigma . k) = k^2$. So all the diagrams evaluates to be zero.
+
+        Therefore we do not have any renormalisation for the interaction term at one loop.
+\end{document}

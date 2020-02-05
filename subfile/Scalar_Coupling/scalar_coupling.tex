@@ -1,0 +1,45 @@
+\documentclass[a4paper,crop=false]{standalone}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
+% \usepackage{fullpage}
+% \usepackage[compat=1.1.0]{tikz-feynman}
+% \usepackage{wrapfig}
+% \usepackage{hyperref}
+% \usepackage{graphicx,subcaption,caption}
+\begin{document}
+    \subsection{Two point function}
+        \begin{figure}[h]
+            \centering
+            \begin{subfigure}[t]{0.49\textwidth}
+                \input{image/tadpole.tex}
+                \caption{Tadpole Diagram}
+                \label{tadpole}
+            \end{subfigure}
+            \begin{subfigure}[t]{0.49\textwidth}
+                \input{image/electron_self_energy.tex}
+                \caption{Electron Self Energy}
+                \label{electron_self_energy}
+            \end{subfigure}
+        \end{figure}
+        \subsubsection*{Tadpole Diagram}
+            In the tadpole diagram \ref{tadpole} momentum consevation at the vertices gives $q=0$. This term known as Hartree term usually gets cancelled by the background uniform charge distribution.
+        \subsubsection*{Electron Self Energy}
+            This diagram \ref{electron_self_energy} translates to 
+            \begin{equation}
+                (-ie)^2\int^{\infty}_{-\infty}\frac{d\omega}{2\pi}\int_{\frac{\Lambda}{s}<|q|<\Lambda}\frac{d^2q}{(2\pi)^2} G^{(0)}_1(i\omega,k - q)\frac{2\pi}{|q|}
+            \end{equation}
+            the $\omega$ integral is straightforward and gives following
+            \begin{equation}
+                -e^2\int_{\frac{\Lambda}{s}<|q|<\Lambda}\frac{d^2q}{(2\pi)^2} (1 + \frac{\sigma . (k-q)}{|k-q|})\frac{1}{|q|}
+            \end{equation}
+            the q integral is difficult to do and analytic result can be obtained in Mathematica. Although as we are not interested in the higher powers of external momentum k we can expand the integrand in powers of k and then get the integral easily. For example upto order k we get $\frac{\sigma . k}{2\pi} log(s)$.
+    \subsection*{Photon Self Energy}
+        \begin{wrapfigure}{r}{0.5\textwidth}
+            \centering
+            \input{image/photon_self_energy.tex}
+            \caption{Photon Self Energy}
+            \label{fig:photon_self_energy}
+        \end{wrapfigure}
+        afouagvhaljsvvlwahvji;hvn ouqgavdhnkvjl  fhvalhnl
+
+\end{document}

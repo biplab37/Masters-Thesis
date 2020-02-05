@@ -1,0 +1,19 @@
+\documentclass{standalone}
+
+\begin{document}
+	\begin{tikzpicture}
+		\begin{feynman}
+			\vertex (b);
+			\vertex [left=of b] (a);
+			\vertex [right=of b] (c);
+			\vertex [right=of c] (d);
+			\diagram*{
+				(a)--[boson,edge label=\(\omega k\)](b);
+				(b)--[fermion,out=90,in=90,edge label=\(\omega_1 k_1\)](c);
+				(c)--[fermion,out=-90,in=-90,edge label=\(\omega_1-\omega k_1-k\)](b);
+				(c)--[boson,edge label=\(\omega k\)](d);
+			};
+
+		\end{feynman}
+	\end{tikzpicture}
+\end{document}

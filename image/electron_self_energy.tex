@@ -1,0 +1,17 @@
+\documentclass{standalone}
+% \usepackage[compat=1.1.0]{tikz-feynman}
+
+\begin{document}
+    \begin{tikzpicture}
+        \begin{feynman}
+            \vertex (a);
+            \vertex [left=of a] (i);
+            \vertex [right=of a] (b);
+            \vertex [right=of b] (f);
+            \diagram*{
+                (i)--[fermion,edge label=\(k\)](a)--[fermion,edge label'=\(k-q\)](b)--[fermion,edge label=\(k\)](f);
+                (a)--[boson,edge label=\(q\),out=90,in=90](b);
+            };
+        \end{feynman}
+    \end{tikzpicture}
+\end{document}
