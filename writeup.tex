@@ -39,14 +39,13 @@
         \subfile{subfile/Constant_Interaction/interaction_renormalisation.tex}
     \subsection{Turning intervalley potential on}
         \subfile{subfile/Constant_Interaction/intervalley_potential.tex}
-    \subsection{Two point function second order}
-        \subfile{subfile/Constant_Interaction/twopoint.tex}
     \subsection{Conclusion}
         \begin{itemize}
-            \item $v_F$ does not renormalise as we change the cutoff momentum. To renormalise $v_F$ we need the interaction to have momentum dependence. This is easy to see. Consider the interaction of the form $\frac{V}{2!2!} \Psi^{\dagger}_{1,k_4}\Psi^{\dagger}_{1,k_3}\Psi_{1,k_2}\Psi_{1,k_1}$. TO renormalise $v_F$ we have to contract two momentum to get free particle green functions. This introduces delta function on the momentum which gives $\frac{V}{2!2!} \Psi^{\dagger}_{1,k_1}G^{(0)}_1(i\omega,k)\Psi_{1,k_1}$ with integration over $k$ and $\omega$. This will always give $\Psi^{\dagger}_{1,k_1}(constant)\Psi_{1,k_1}$ unless $V$ is a function of both $k$ and $k_1$.
+            \item $v_F$ does not renormalise as we change the cutoff momentum. To renormalise $v_F$ we need the interaction to have momentum dependence at first order. Although at higher order we do get renormalisation of $v_F$ (see \ref{two_point_second_order}) 
+            % This is easy to see. Consider the interaction of the form $\frac{V}{2!2!} \Psi^{\dagger}_{1,k_4}\Psi^{\dagger}_{1,k_3}\Psi_{1,k_2}\Psi_{1,k_1}$. TO renormalise $v_F$ we have to contract two momentum to get free particle green functions. This introduces delta function on the momentum which gives $\frac{V}{2!2!} \Psi^{\dagger}_{1,k_1}G^{(0)}_1(i\omega,k)\Psi_{1,k_1}$ with integration over $k$ and $\omega$. This will always give $\Psi^{\dagger}_{1,k_1}(constant)\Psi_{1,k_1}$ unless $V$ is a function of both $k$ and $k_1$.
             \item a chemical potential like term (mass like) arises due to renormalisation.
             \begin{equation}
-                \mu' = s\left( \mu + \frac{(V_1+V_2)\Lambda^2}{8\pi}\left(1 - \frac{1}{s^2} \right) \right)
+                \mu' = s\left( \mu + \frac{(V_1+V_2)\Lambda^2}{8\pi}\left(1 - \frac{1}{s^2} \right) \right){}
             \end{equation}
             \item $V_1$ does not renormalise under $\Lambda \to \frac{\Lambda}{s}$ transformation.
             \item $V_2$ renormalises to
@@ -57,6 +56,10 @@
             As $ZS' = - BCS$.
 
         \end{itemize}
+    \subsection{Two point function second order}\label{two_point_second_order}
+        \subfile{subfile/Constant_Interaction/twopoint.tex}
     \section{Scalar Coupling}
         \subfile{subfile/Scalar_Coupling/scalar_coupling.tex}
+    \section{Appendix}
+        \subfile{subfile/appendix.tex}
 \end{document}

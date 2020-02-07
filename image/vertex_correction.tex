@@ -1,0 +1,20 @@
+\documentclass{standalone}
+% \usepackage[compat=1.1.0]{tikz-feynman}
+
+\begin{document}
+	\begin{tikzpicture}
+        \begin{feynman}
+            \vertex (a);
+            \vertex [right=of a] (b){q};
+            \vertex [above left=of a] (c);
+            \vertex [below left=of a] (d);
+            \vertex [above left=of c] (e);
+            \vertex [below left=of d] (f);
+            \diagram*{
+                (f)--[fermion,edge label=\(k+q\)](d)--[fermion,edge label'=\(k+q-q_1\)](a)--[fermion,edge label'=\(k-q_1\)](c)--[fermion,edge label=\(k\)](e);
+                (c)--[boson,edge label'=\(q_1\)](d);
+                (a)--[boson](b);
+            };
+        \end{feynman}
+    \end{tikzpicture}
+\end{document}

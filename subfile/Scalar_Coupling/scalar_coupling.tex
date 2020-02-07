@@ -7,6 +7,17 @@
 % \usepackage{hyperref}
 % \usepackage{graphicx,subcaption,caption}
 \begin{document}
+    Rather than introducing a constant interaction which couples inter and intra valley fields, we can introduce a scalar field. The interaction is of the form
+    \begin{equation}
+        -ie(\Psi_{1,k}^{\dagger}\Psi_{1,k+q}\phi_{q} + \Psi_{2,k}^{\dagger}\Psi_{2,k+q}\phi_{q})
+    \end{equation}
+    To get Coulomb like interaction (i.e. the scalar field behaving like a photon field) we will assume the scalar field propagator to be $\frac{2\pi}{|q|}$. Feynman diagrams for the theory are shown in figure \ref{fig:feynman_scalar}
+    \begin{figure}[h]
+        \centering
+        \input{image/scalar_feynman.tex}
+        \caption{feynman diagrams for scalar coupling}
+        \label{fig:feynman_scalar}
+    \end{figure}
     \subsection{Two point function}
         \begin{figure}[h]
             \centering
@@ -30,16 +41,32 @@
             \end{equation}
             the $\omega$ integral is straightforward and gives following
             \begin{equation}
-                -e^2\int_{\frac{\Lambda}{s}<|q|<\Lambda}\frac{d^2q}{(2\pi)^2} (1 + \frac{\sigma . (k-q)}{|k-q|})\frac{1}{|q|}
+                -e^2\int_{\frac{\Lambda}{s}<|q|<\Lambda}\frac{d^2q}{4\pi} (1 + \frac{\sigma . (k-q)}{|k-q|})\frac{1}{|q|}
             \end{equation}
-            the q integral is difficult to do and analytic result can be obtained in Mathematica. Although as we are not interested in the higher powers of external momentum k we can expand the integrand in powers of k and then get the integral easily. For example upto order k we get $\frac{\sigma . k}{2\pi} log(s)$.
-    \subsection*{Photon Self Energy}
-        \begin{wrapfigure}{r}{0.5\textwidth}
+            the q integral is difficult to do and analytic result can be obtained in Mathematica. Although as we are not interested in the higher powers of external momentum k we can expand the integrand in powers of k and then get the integral easily. For example at order k we get $\frac{\sigma . k e^2}{2} log(s)$ which renormalises $v_F$.
+    \subsection{Photon Self Energy}
+        \begin{wrapfigure}{r}{0.3\textwidth}
             \centering
             \input{image/photon_self_energy.tex}
             \caption{Photon Self Energy}
             \label{fig:photon_self_energy}
         \end{wrapfigure}
-        afouagvhaljsvvlwahvji;hvn ouqgavdhnkvjl  fhvalhnl
+        With the vertex \ref{fig:feynman_scalar} one can form the diagram \ref{fig:photon_self_energy} which will give correction to the photon propagator. The correction is given by
+        \begin{equation}
+            e^2\int_{\frac{\Lambda}{s}<|k|<\Lambda}\frac{d^2k}{(2\pi)^2}\int_{-\infty}^{\infty}\frac{d\omega}{2\pi}G_{1}^{(0)}(i\omega_1,k_1)G_{1}^{(0)}(i(\omega_1-\omega),k_1-k)
+        \end{equation}
+        The $\omega$ integral can be evaluated as given in the appendix (see \ref{eqn:I2prime}).
+
+        \subsection{Vertex Correction}
+        \begin{wrapfigure}{l}{0.3\textwidth}
+            \centering
+            \input{image/vertex_correction.tex}
+            \caption{Vertex Correction}
+            \label{fig:vertex_corection}
+        \end{wrapfigure}   
+        Similarly one can calculate the vertex correction \ref{fig:vertex_corection} as well
+        \begin{equation}
+            e^2\int_{\frac{\Lambda}{s}<|q_1|<\Lambda}\frac{d^2q_1}{(2\pi)^2}\int_{-\infty}^{\infty}\frac{d\omega}{2\pi}G_{1}^{(0)}(i\omega_1,k + q + q_1)G_{1}^{(0)}(i(\omega_1-\omega),k-q_1)\frac{2\pi}{|q_1|}
+        \end{equation}  
 
 \end{document}

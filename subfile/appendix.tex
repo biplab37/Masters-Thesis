@@ -1,0 +1,37 @@
+\documentclass[a4paper,crop=false]{standalone}
+
+\begin{document}
+	\subsection*{Coulomb Interaction}
+		The Coulomb interaction i.e. $\frac{1}{r}$ type of interaction in momentum space can be obtained by Fourier transforming
+		\begin{equation}
+			\int d^2\mathbf{r}\frac{e^{i\mathbf{k}.\mathbf{r}}}{r} = \int_{0}^{\infty}rdr\int_{0}^{2\pi}d\theta \frac{e^{ikr \cos(\theta)}}{r} = \int_{0}^{\infty}dr 2\pi \text{BesselJ}(0,kr) = \frac{2\pi}{k}
+		\end{equation}
+	\subsection*{Integrals}
+	This section summerises some of the frequent integrals used in the text.
+
+	we have 
+	\begin{equation}
+		G_{1}^{(0)}(i\omega,k) = \sum_{s=\pm 1}\frac{1 + s\frac{\sigma . k}{|k|}}{i \omega - s v_F |k|}
+	\end{equation}
+	\textbf{1.}
+	\[
+	I_1(k) = \int_{-\infty}^{\infty} \frac{d\omega}{2\pi} G_{1}^{(0)}(i\omega,k) = \frac{1}{2}\left(1 + \frac{\sigma . k}{|k|}\right)
+	\]
+	\textbf{2.}
+	\[
+	I_{2}(k_1,k_2) = \int_{-\infty}^{\infty}\frac{d\omega}{2\pi}G_{1}^{(0)}(i\omega,k_1)G_{1}^{(0)}(i\omega,k_2)
+	\]
+	The poles are at $\pm i v_F |k_1|$ and $\pm i v_F |k_2|$. We can close the contour on the upper half plane (of $i\omega$) to get only the contribution from $i v_F |k_1|$ and $i v_F |k_2|$. This gives 
+	\begin{equation}
+		I_{2}(k_1,k_2) = \frac{1}{2v_F}\frac{1 - \frac{\sigma . k_1}{|k_1|}\frac{\sigma . k_2}{|k_2|}}{|k_1| + |k_2|} = \frac{1}{2v_F}\frac{1 - cos(\theta_{k_1,k_2})}{|k_1| + |k_2|}	
+	\end{equation}
+	\textbf{3.}
+	\begin{equation}
+		I_{2'}(k_1,k_2,\omega') = \int_{-\infty}^{\infty}\frac{d\omega}{2\pi}G_{1}^{(0)}(i\omega,k_1)G_{1}^{(0)}(i\omega+i\omega',k_2)
+	\end{equation}
+	This integral evaluates to
+	\begin{equation}\label{eqn:I2prime}
+		I_{2'}(k_1,k_2.\omega') = \left(\tfrac{\sigma .k_1}{|k_1|}  - \tfrac{\sigma . k_2}{|k_2|}\right)\tfrac{i\omega'}{2(\omega'^2 + v_F^2(|k_1| + |k_2|)^2)} + \tfrac{1}{2}\left(1 - cos(\theta_{k_1,k_2})\right)\tfrac{v_F(|k_1| + |k_2|)}{\omega'^2 + v_F^2(|k_1| + |k_2|)^2}
+	\end{equation}
+	We can analytically continue the equation to real frequencies by the substitution $i\omega'\to\omega$.
+\end{document}

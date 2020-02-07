@@ -38,9 +38,13 @@
     \begin{equation}
         \left(1 + \tfrac{\sigma . k_1}{|k_1|}\right)\sum_{s'=\pm 1} \tfrac{1 + s'\tfrac{\sigma . (k-k_1-k_2)}{|k-k_1-k_2|}}{i\omega_2 + v_F|k_1| - s'v_F|k-k_1-k_2|} + \left(1 + \tfrac{\sigma . (k-k_1-k_2)}{|k-k_1-k_2|}\right)\sum_{s = \pm 1}\tfrac{1 + s\frac{\sigma . k_1}{|k_1|}}{-i\omega_2 + v_F|k-k_1-k_2| - sv_F|k_1|}
     \end{equation}
-    for the other $\omega$ integral we first have to multiply the above result by $G_1^{(0)}(i\omega_2,k_2)$. All the terms in the integrands are of the form 
+    Note that the terms with $s = s' = 1$ cancels each other. For the other $\omega$ integral we first have to multiply the above result by $G_1^{(0)}(i\omega_2,k_2)$. All the terms in the integrands are of the form 
     \begin{equation}
         \int_{\infty}^{\infty}\frac{d\omega_2}{2\pi}\frac{1}{(i\omega_2 - a)(i\omega_2 -b)}
     \end{equation}
-    where a and b are real numbers. The integrals trivially reduces to $\frac{\theta(b) - \theta(a)}{a-b}$. Thus we only have non zero contribution if a and b are of different signs. In this case a can take values from $\pm v_F|k_2|$ and b can take values from $-v_F|k_1|\pm v_F|k-k_1-k_2|$ and $-v_F|k-k_1-k_2| \pm v_F|k_1|$
+    where a and b are real numbers. The integrals trivially reduces to $\frac{\theta(b) - \theta(a)}{a-b}$. Thus we only have non zero contribution if a and b are of different signs. In this case a can take values from $\pm v_F|k_2|$ and b can take values from $\pm v_F(|k_1| + |k-k_1-k_2|)$. Closing the contour such a way to take only the contribution from the positive ones we get,
+    \begin{equation}
+        \left(1 + \hat{\sigma}_{k_1}\right)\left(1 + \hat{\sigma}_{k_2}\right)\left(1 - \hat{\sigma}_{k-k_1-k_2}\right)\tfrac{1}{v_F(|k_1|+|k_2| + |k-k_2-k_2|)} + \left(1 + \hat{\sigma}_{k-k_1-k_2}\right)\left(1 - \hat{\sigma}_{k_1}\right)\tfrac{1}{v_F(|k_1|-|k_2|+|k-k_1-k_2|)}
+    \end{equation}
+    where $\hat{\sigma}_{k} = \frac{\sigma . k}{|k|}$.
 \end{document}

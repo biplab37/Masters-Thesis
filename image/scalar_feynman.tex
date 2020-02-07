@@ -1,0 +1,36 @@
+\documentclass{standalone}
+
+\begin{document}
+	\centering
+	\begin{subfigure}[t]{0.45\textwidth}
+		\begin{tikzpicture}
+			\begin{feynman}
+				\vertex (a);
+				\vertex [right=of a] (b);
+				\vertex [above=of a] (c);
+				\vertex [right=of c] (d);
+				\diagram*{
+					(a)--[boson](b);
+					(c)--[fermion](d);
+				};
+			\end{feynman}
+		\end{tikzpicture}
+		\caption{electron and photon propagator}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.3\textwidth}
+		\begin{tikzpicture}
+			\begin{feynman}
+				\vertex (a);
+				\vertex [right=of a] (p);
+				\vertex [above left=of a] (f);
+				\vertex [below left=of a] (i);
+				\diagram*{
+					(i)--[fermion](a)--[fermion](f);
+					(a)--[boson](p);
+				};
+	 		\end{feynman}
+		\end{tikzpicture}
+		\caption{vertex}
+	\end{subfigure}
+
+\end{document}
